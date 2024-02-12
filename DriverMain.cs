@@ -276,14 +276,17 @@ namespace RPGFunger
 
                 if (playerClass.GetHp() > 0 && enemyClass.GetHp() <= 0)
                 {
+                    Thread.Sleep(1500);
+                    Console.Clear();
                     Console.WriteLine($"You defeated the {enemyClass.GetName()}!");
                     int expGained = enemyClass.GetExp();
                     playerClass.GainExp(expGained);
                     Console.WriteLine($"You gained {expGained} experience points!");
                     while (playerClass.GetExp() >= 100)
                     {
+                        Console.Clear();
                         playerClass.LevelUp();
-                        Driver.DisplayClassDetails(playerClass);
+
                     }
                 }
             }        
@@ -816,6 +819,7 @@ namespace RPGFunger
         public static void Menu()
         {
             Thread.Sleep(500);
+            Driver.DisplayClassDetails(playerClass);
             Console.WriteLine(@"
 ===================================
 [1] Explore 
